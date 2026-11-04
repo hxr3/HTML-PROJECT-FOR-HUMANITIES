@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Portfolio | Zichuan Yin & Diego Villanueva</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Teko', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            vlr: {
+              bg: '#0b0e14',
+              surface: '#0f1923',
+              card: '#18222c',
+              cardHover: '#1f2b37',
+              border: '#2a3744',
+              red: '#ff4655',
+              redHover: '#e03e4d',
+              cyan: '#00f0ff',
+              muted: '#76889b',
+              light: '#ece8e1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar & VLR sharp borders */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0e14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a3744;
+      border-radius: 0px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff4655;
+    }
+    .vlr-border {
+      border: 1px solid #2a3744;
+    }
+    .vlr-tag {
+      background: #0f1923;
+      border: 1px solid #2a3744;
+    }
+  </style>
+</head>
+<body class="bg-vlr-bg text-vlr-light font-sans min-h-screen flex flex-col antialiased selection:bg-vlr-red selection:text-white">
+
+  <!-- Header -->
+  <header class="bg-vlr-surface border-b border-vlr-border sticky top-0 z-30">
+    <!-- Top thin status bar -->
+    <div class="bg-vlr-bg border-b border-vlr-border px-4 py-1.5 flex justify-between items-center text-[11px] font-mono text-vlr-muted">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-vlr-cyan">
+          <span class="w-2 h-2 rounded-full bg-vlr-cyan animate-pulse"></span>
+          LIVE DATABASE
+        </span>
+        <span class="text-vlr-border">|</span>
+        <span>INDEXED: 6 TEXT GENRES</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4">
+        <span>AUTHOR 1: <strong class="text-vlr-light">ZICHUAN YIN</strong></span>
+        <span>AUTHOR 2: <strong class="text-vlr-light">DIEGO VILLANUEVA</strong></span>
+      </div>
+    </div>
+
+    <!-- Main VLR Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 bg-vlr-red flex items-center justify-center font-display text-2xl font-bold text-white tracking-widest shadow-md">
+          RP
+        </div>
+        <div>
+          <h1 class="font-display text-2xl tracking-wider uppercase leading-none text-white font-bold">
+            READING PORTFOLIO <span class="text-vlr-red">//</span> RESEARCH DB
+          </h1>
+          <p class="text-[11px] font-mono text-vlr-muted tracking-tight">ACADEMIC & TECHNICAL GENRE DISCOURSE ANALYZER</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://canva.link/e0qtai4zcn8v6xk" target="_blank" rel="noopener noreferrer" 
+           class="px-4 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-xs font-bold tracking-wider uppercase transition flex items-center gap-2 border border-vlr-red shadow-sm">
+          <i data-lucide="presentation" class="w-4 h-4"></i>
+          <span>CANVA PRESENTATION</span>
+          <i data-lucide="external-link" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+    
+    <!-- Hero / Tournament Banner Header Style -->
+    <section class="bg-vlr-card border border-vlr-border p-5 relative overflow-hidden">
+      <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-vlr-red/10 to-transparent pointer-events-none"></div>
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-2 px-2 py-0.5 bg-vlr-surface border border-vlr-border text-[11px] font-mono text-vlr-cyan uppercase">
+            <i data-lucide="database" class="w-3 h-3"></i> Comparative Corpus Analysis
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl text-white font-bold tracking-wide uppercase">
+            10 CRITICAL TEXT GENRES IN COMPUTER SCIENCE & CYBERSECURITY
+          </h2>
+          <p class="text-vlr-muted text-xs leading-relaxed max-w-4xl">
+            Inspect structural conventions, target audiences, visual elements, and real-world implications across Conference Proceedings, Research Journals, Preprints, Reviews, Government Guides, and White Papers & more coming soon...
+          </p>
+        </div>
+        <div class="flex items-center gap-4 border-t md:border-t-0 md:border-l border-vlr-border pt-3 md:pt-0 md:pl-6">
+          <div class="text-center font-mono">
+            <span class="block text-2xl font-bold font-display text-vlr-red">6/10</span>
+            <span class="text-[10px] text-vlr-muted uppercase">ANALYZED</span>
+          </div>
+          <div class="text-center font-mono">
+            <span class="block text-2xl font-bold font-display text-vlr-cyan">60%</span>
+            <span class="text-[10px] text-vlr-muted uppercase">LOADING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls & Match Filters -->
+    <section class="bg-vlr-surface p-3 border border-vlr-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <!-- Search Input -->
+      <div class="relative flex-1 min-w-[240px]">
+        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-vlr-muted"></i>
+        <input type="text" id="searchInput" placeholder="SEARCH PAPERS, AUTHORS, KEYWORDS..." 
+               class="w-full pl-9 pr-3 py-2 bg-vlr-bg border border-vlr-border text-xs font-mono text-white placeholder-vlr-muted focus:outline-none focus:border-vlr-red transition uppercase">
+      </div>
+
+      <!-- Genre Pills (VLR Event Filter Tags) -->
+      <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 md:py-0" id="genreFilters">
+        <!-- Dynamic Filter Tags -->
+      </div>
+    </section>
+
+    <!-- Match Card Grid -->
+    <section id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Rendered via JS -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-vlr-border mt-12 bg-vlr-surface text-vlr-muted text-xs py-6 font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 bg-vlr-red flex items-center justify-center font-display text-sm font-bold text-white">RP</div>
+        <span>READING PORTFOLIO // FOR ALTHEA DANIELSKI</span>
+      </div>
+      <div>
+        <span>ZICHUAN YIN & DIEGO VILLANUEVA c: 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Detail Modal (VLR Match Inspector) -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-vlr-bg/90 backdrop-blur-sm overflow-y-auto opacity-0 transition-opacity duration-200">
+    <div id="modalContainer" class="relative w-full max-w-4xl bg-vlr-card border border-vlr-border shadow-2xl flex flex-col max-h-[92vh] transform scale-95 transition-transform duration-200">
+      
+      <!-- Modal Top Bar -->
+      <div class="p-4 border-b border-vlr-border bg-vlr-surface flex items-start justify-between gap-4 sticky top-0 z-10">
+        <div class="space-y-1 max-w-3xl">
+          <div class="flex items-center gap-2">
+            <span id="modalGenreBadge" class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-vlr-red text-white">GENRE</span>
+            <span id="modalYear" class="text-xs font-mono text-vlr-cyan font-bold">YEAR</span>
+            <span class="text-vlr-border">|</span>
+            <span id="modalTextNum" class="text-xs font-mono text-vlr-muted">TEXT ID</span>
+          </div>
+          <h2 id="modalTitle" class="font-display text-2xl text-white font-bold tracking-wide uppercase leading-tight">TITLE</h2>
+          <p id="modalAuthors" class="text-xs font-mono text-vlr-muted">AUTHORS</p>
+        </div>
+        <button id="closeModalBtn" class="p-2 text-vlr-muted hover:text-white bg-vlr-bg hover:bg-vlr-surface border border-vlr-border transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs (VLR Match Stats Tabs) -->
+      <div class="flex border-b border-vlr-border bg-vlr-bg font-mono text-xs">
+        <button id="tabTextAnalysis" class="px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition">
+          <i data-lucide="file-text" class="w-4 h-4 text-vlr-red"></i>
+          TEXT ANALYSIS & SOURCE
+        </button>
+        <button id="tabGenreChar" class="px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition">
+          <i data-lucide="sliders" class="w-4 h-4"></i>
+          GENRE PROFILE
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 overflow-y-auto space-y-5 flex-1 bg-vlr-card">
+        
+        <!-- Tab 1 Content: Text Analysis -->
+        <div id="contentTextAnalysis" class="space-y-4">
+          
+          <!-- Direct Link Banner -->
+          <div class="p-4 bg-vlr-surface border border-vlr-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 text-vlr-cyan font-mono text-xs font-bold uppercase">
+                <i data-lucide="external-link" class="w-4 h-4"></i> OFFICIAL RESEARCH SOURCE
+              </div>
+              <p class="text-xs text-vlr-muted">Direct access to the publication, repository, or archive.</p>
+            </div>
+            <a id="modalDirectLink" href="#" target="_blank" rel="noopener noreferrer" 
+               class="px-4 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-xs font-bold tracking-wider uppercase transition flex items-center gap-2 border border-vlr-red">
+              <span>OPEN FULL PAPER</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Citation Block -->
+          <div class="p-3 bg-vlr-bg border border-vlr-border space-y-1 font-mono text-xs">
+            <span class="text-vlr-muted block uppercase text-[10px] font-bold">APA CITATION FORMAT</span>
+            <p id="modalCitation" class="text-vlr-light leading-relaxed"></p>
+          </div>
+
+          <!-- Detailed Key Highlights Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">AUTHOR CREDENTIALS</span>
+              <p id="modalCredentials" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">DISCOVERY METHOD</span>
+              <p id="modalHowFound" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">SCOPE OF TEXT</span>
+              <p id="modalScope" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">PRIMARY AUDIENCE</span>
+              <p id="modalPrimaryAudience" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+          </div>
+
+          <!-- Message & Significance -->
+          <div class="space-y-3">
+            <div class="p-4 bg-vlr-surface border-l-2 border-l-vlr-cyan border-y border-r border-vlr-border space-y-1">
+              <span class="text-xs font-mono font-bold text-vlr-cyan uppercase flex items-center gap-1.5">
+                <i data-lucide="message-square-quote" class="w-4 h-4"></i> CORE MESSAGE & TAKEAWAY
+              </span>
+              <p id="modalMessage" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+
+            <div class="p-4 bg-vlr-surface border-l-2 border-l-vlr-red border-y border-r border-vlr-border space-y-1">
+              <span class="text-xs font-mono font-bold text-vlr-red uppercase flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-4 h-4"></i> PRACTICAL SIGNIFICANCE & IMPACT
+              </span>
+              <p id="modalSignificance" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+                <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">STRUCTURAL LAYOUT</span>
+                <p id="modalTextOrganization" class="text-xs text-vlr-light leading-relaxed"></p>
+              </div>
+
+              <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+                <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">VISUAL ELEMENTS</span>
+                <p id="modalTextVisuals" class="text-xs text-vlr-light leading-relaxed"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2 Content: Genre Profile -->
+        <div id="contentGenreChar" class="space-y-4 hidden">
+          <div class="p-3 bg-vlr-surface border border-vlr-border text-xs font-mono text-vlr-muted">
+            <span class="font-bold text-white">GENRE PROFILE:</span> Structural, editorial, and rhetorical conventions defining <span id="genreOverviewTitle" class="text-vlr-cyan uppercase font-bold">THIS GENRE</span>.
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">WHO WRITES / ORGANIZES</span>
+              <p id="genreWhoWrites" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">INTENDED AUDIENCE</span>
+              <p id="genreAudience" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">PUBLISHER & VENUES</span>
+              <p id="genrePublisher" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">FORMATS & DISTRIBUTION</span>
+              <p id="genreFormats" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">HOW READERS FIND IT</span>
+              <p id="genreHowFound" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-cyan uppercase block">WRITER'S PURPOSE</span>
+              <p id="genrePurpose" class="text-xs text-vlr-light"></p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">CORE SUBJECTS COVERED</span>
+              <p id="genreSubjects" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">ORGANIZATIONAL STRUCTURE</span>
+              <p id="genreStructure" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">TYPICAL VISUAL ELEMENTS</span>
+              <p id="genreVisuals" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-3 bg-vlr-surface border border-vlr-border space-y-1">
+              <span class="text-[10px] font-mono font-bold text-vlr-muted uppercase block">DIFFERENCES FROM SIMILAR GENRES</span>
+              <p id="genreDifferences" class="text-xs text-vlr-light"></p>
+            </div>
+
+            <div class="p-4 bg-vlr-surface border-l-2 border-l-vlr-cyan border-y border-r border-vlr-border space-y-1">
+              <span class="text-xs font-mono font-bold text-vlr-cyan uppercase flex items-center gap-1.5">
+                <i data-lucide="lightbulb" class="w-4 h-4"></i> PRO-TIP / KEY GENRE INSIGHT
+              </span>
+              <p id="genreInteresting" class="text-xs text-vlr-light leading-relaxed"></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Dataset with tags added for VLR look
+    const portfolioData = [
+      {
+        id: 1,
+        textNum: "TEXT 01",
+        title: "Channel Attention Is All You Need for Video Frame Interpolation",
+        authors: "Choi, M., Kim, H., Han, B., Xu, N., & Lee, K. M.",
+        year: "2020",
+        genre: "Conference Article / Proceeding",
+        tags: ["DEEP LEARNING", "VIDEO GENERATION", "AAAI 2020"],
+        link: "https://ojs.aaai.org/index.php/AAAI/article/view/6693",
+        citation: "Choi, M., Kim, H., Han, B., Xu, N., & Lee, K. M. (2020). Channel Attention Is All You Need for Video Frame Interpolation. Proceedings of the AAAI Conference on Artificial Intelligence, 34(07), 10663–10671.",
+        
+        genreData: {
+          whoWrites: "Computer science researchers and professors affiliated with institutions like Seoul National University and Adobe Research.",
+          audience: "Machine learning researchers, computer vision engineers, and graduate students working on video generation.",
+          publisher: "Association for the Advancement of Artificial Intelligence (AAAI) in the Proceedings of the AAAI Conference on Artificial Intelligence.",
+          formats: "PDF files hosted on digital libraries and conference websites.",
+          howFound: "Through academic database searches and computer science conference proceedings.",
+          purpose: "To show that simpler channel attention mechanisms can replace heavy optical flow estimations to achieve better video frame interpolation results.",
+          subjects: "Video processing, deep learning, and video frame interpolation.",
+          structure: "An abstract, followed by an introduction and related work, the proposed network architecture, experimental results, and a conclusion.",
+          visuals: "Network diagrams, qualitative comparison images, and quantitative performance graphs.",
+          differences: "Unlike a standard technical report, it follows a strict academic peer-review structure and focuses on novel scientific contributions rather than practical product requirements.",
+          interesting: "This specific work impacts real-world applications like video streaming, slow-motion generation, and frame rate upconversion across consumer and professional devices."
+        },
+        
+        textData: {
+          credentials: "The authors are computer science researchers, professors, and industry scientists affiliated with Seoul National University and Adobe Research, specializing in computer vision, deep learning, and image processing.",
+          howFound: "Found through a targeted search on Google Scholar.",
+          scope: "Covers the technical design, architectural implementation, mathematical formulation, and empirical evaluation of deep learning models for video frame interpolation.",
+          subject: "Video frame interpolation using simplified channel attention mechanisms as a substitute for heavy optical flow estimation.",
+          primaryAudience: "Machine learning researchers, computer vision engineers, and graduate students working on video generation and processing.",
+          message: "Heavy optical flow estimation is unnecessary for high-quality video frame interpolation; lightweight channel attention mechanisms can achieve superior or comparable performance more efficiently.",
+          organization: "Standard academic structure: abstract, introduction, related work, proposed network architecture, quantitative & qualitative experimental results, and conclusion.",
+          visuals: "Network architecture diagrams, visual qualitative comparison images of interpolated frames, and quantitative performance graphs.",
+          significance: "Shifts computational paradigms in video processing, directly impacting real-world applications such as slow-motion video generation and streaming frame rate upconversion."
+        }
+      },
+      {
+        id: 2,
+        textNum: "TEXT 02",
+        title: "MapReduce: Simplified Data Processing on Large Clusters",
+        authors: "Dean, J., & Ghemawat, S.",
+        year: "2008",
+        genre: "Research Journal Article",
+        tags: ["DISTRIBUTED SYSTEMS", "BIG DATA", "ACM TOCS"],
+        link: "https://dl.acm.org/doi/10.1145/1327452.1327492",
+        citation: "Dean, J., & Ghemawat, S. (2008). MapReduce: simplified data processing on large clusters. Communications of the ACM, 51(1), 107–113.",
+        
+        genreData: {
+          whoWrites: "Jeff Dean and Sanjay Ghemawat, former/current software engineers and computer scientists at Google Inc.",
+          audience: "Distributed systems researchers, database engineers, and computer science academics.",
+          publisher: "Association for Computing Machinery (ACM) in ACM Transactions on Computer Systems (TOCS) & Communications of the ACM.",
+          formats: "PDF files and digital library web pages.",
+          howFound: "Through academic search engines like Google Scholar or the ACM Digital Library.",
+          purpose: "To present a comprehensive, peer-reviewed evaluation of MapReduce, a programming model and implementation for processing large datasets on clusters of commodity machines.",
+          subjects: "Distributed computing, large-scale data processing, fault tolerance, and cluster architecture.",
+          structure: "An abstract, introduction, programming model description, implementation details, refined performance evaluations, related work, and conclusions.",
+          visuals: "Execution flow diagrams, cluster data scale tables, and performance throughput graphs.",
+          differences: "Unlike a fast conference paper, this journal article provides an expanded, mature, and deeply rigorous treatment of a system after years of production use and peer review.",
+          interesting: "Established the foundational blueprint for modern big data processing frameworks like Hadoop and Spark, fundamentally shifting how internet-scale data is handled globally."
+        },
+
+        textData: {
+          credentials: "Prominent software engineers and computer scientists at Google Inc., widely recognized for designing foundational large-scale distributed infrastructure systems.",
+          howFound: "Found through academic search engines ACM Digital Library and Google Scholar.",
+          scope: "Covers the programming model, execution framework, fault-tolerance mechanisms, implementation details, and performance evaluations of distributed data processing on large commodity clusters.",
+          subject: "Distributed computing and large-scale data processing models.",
+          primaryAudience: "Distributed systems researchers, database engineers, and software architects.",
+          message: "Complex parallel computation can be simplified into two core primitives (map and reduce) that automatically handle distribution and fault tolerance on massive clusters.",
+          organization: "Abstract, introduction, programming model overview, implementation details, performance evaluations, related work, and conclusions.",
+          visuals: "Flow diagrams, cluster data scale tables, and performance throughput graphs.",
+          significance: "Established the foundational blueprint for modern big data frameworks like Hadoop and Spark, fundamentally transforming internet-scale data storage and analytics."
+        }
+      },
+      {
+        id: 3,
+        textNum: "TEXT 03",
+        title: "ToddlerBot: Open-Source ML-Compatible Humanoid Platform for Loco-Manipulation",
+        authors: "Shi, H., Wang, W., Song, S., & Liu, C. K.",
+        year: "2025",
+        genre: "Preprint",
+        tags: ["ROBOTICS", "OPEN-SOURCE", "ARXIV 2025"],
+        link: "https://arxiv.org/abs/2502.00893",
+        citation: "Shi, H., Wang, W., Song, S., & Liu, C. K. (2025). ToddlerBot: Open-Source ML-Compatible Humanoid Platform for Loco-Manipulation. arXiv preprint arXiv:2502.00893.",
+        
+        genreData: {
+          whoWrites: "Researchers, university professors, graduate students, and independent scientists.",
+          audience: "Researchers, professionals, and students who want rapid access to recent developments.",
+          publisher: "Online preprint open-access servers such as arXiv.",
+          formats: "PDF or web HTML versions.",
+          howFound: "Search engines, arXiv RSS feeds, and AI recommendation tools.",
+          purpose: "To quickly disseminate new academic findings in fast-evolving fields like AI and robotics without initial publication delays.",
+          subjects: "Artificial intelligence, machine learning, robotics, computer vision, and algorithms.",
+          structure: "Follows standard academic structure (abstract, intro, methodology, experiments, conclusion).",
+          visuals: "Figures, diagrams, tables, mathematical equations, and links to code/videos.",
+          differences: "Preprints bypass formal publisher peer-review prior to public release, enabling rapid sharing but requiring reader discretion.",
+          interesting: "Crucial in computer science because researchers need fast claim priority. Preprints are typically free to read worldwide."
+        },
+
+        textData: {
+          credentials: "Robotics and computer science researchers affiliated with Stanford University.",
+          howFound: "Identified via curated AI scholarly search.",
+          scope: "Hardware design, control systems, machine learning pipelines, 3D printing, simulation, and sim-to-real transfer for ToddlerBot.",
+          subject: "Development of an affordable, open-source humanoid robot platform supporting machine learning research.",
+          primaryAudience: "Robotics researchers, ML engineers, computer science students, and hardware developers.",
+          message: "Providing a low-cost, open-source humanoid platform lowers the barrier to entry for embodied intelligence and ML research.",
+          organization: "Summary, introduction, related work, system design, control methods, experimental results, limitations/future work, and conclusions.",
+          visuals: "Photographs of infant-scale robots executing tasks, CAD mechanical drawings, comparison matrices, equations, and throughput graphs.",
+          significance: "Democratizes humanoid robotics research by offering an accessible alternative to multi-hundred-thousand-dollar commercial hardware."
+        }
+      },
+      {
+        id: 4,
+        textNum: "TEXT 04",
+        title: "A Survey on the Optimization of Large Language Model-Based Agents",
+        authors: "Du, S., Zhao, J., Shi, J., Xie, Z., Jiang, X., Bai, Y., & He, L.",
+        year: "2026",
+        genre: "Review Article",
+        tags: ["LLM AGENTS", "SURVEY", "ACM SURVEYS"],
+        link: "https://doi.org/10.1145/3789261",
+        citation: "Du, S., Zhao, J., Shi, J., Xie, Z., Jiang, X., Bai, Y., & He, L. (2026). A survey on the optimization of large language model-based agents. ACM Computing Surveys, 58(9), Article 223.",
+        
+        genreData: {
+          whoWrites: "Established researchers, professors, and subject matter specialists.",
+          audience: "Researchers, students, and practitioners entering or synthesizing a field.",
+          publisher: "Academic publishers (e.g., ACM Computing Surveys).",
+          formats: "PDF and HTML digital articles.",
+          howFound: "Academic search portals, university libraries, and reference citations.",
+          purpose: "To summarize, categorize, compare, and critically evaluate existing research while defining open challenges and future directions.",
+          subjects: "Comprehensive taxonomies of mature or emerging scientific domain literature.",
+          structure: "Abstract, intro, background, taxonomy/classification, detailed comparative analysis, open challenges, and conclusions.",
+          visuals: "Taxonomy trees, comprehensive comparison tables, flowcharts, and domain relationship maps.",
+          differences: "Review articles synthesize previous literature rather than introducing new empirical or experimental findings.",
+          interesting: "Essential reading for newcomers; consolidates hundreds of fragmented research papers into a coherent mental framework."
+        },
+
+        textData: {
+          credentials: "Researchers affiliated with East China Normal University, Donghua University, and the Shanghai Institute of Artificial Intelligence for Education.",
+          howFound: "Found through literature synthesis search.",
+          scope: "Surveys agent optimization with LLMs: fine-tuning, RL, prompt engineering, RAG, evaluation methods, and real-world deployments.",
+          subject: "Optimization strategies for LLM-based agents to elevate decision-making, planning, and task execution capabilities.",
+          primaryAudience: "Artificial intelligence researchers, machine learning engineers, and computer science graduate students.",
+          message: "Optimizing LLM agents requires multifaceted strategies divided into parameter-driven vs. parameter-free methods.",
+          organization: "Intro, background, parameter-driven optimization, parameter-free methods, open-source frameworks, evaluation benchmarks, applications, and challenges.",
+          visuals: "Taxonomy classification charts, technical architectural diagrams, and feature comparison tables.",
+          significance: "Provides an essential blueprint for researchers navigation-building autonomous AI agents, saving hundreds of reading hours."
+        }
+      },
+      {
+        id: 5,
+        textNum: "TEXT 05",
+        title: "Incident Response Recommendations and Considerations for Cybersecurity Risk Management (NIST SP 800-61 Rev 3)",
+        authors: "Nelson, A., Rekhi, S., Scarfone, K., & Souppaya, M.",
+        year: "2025",
+        genre: "Technical Guide / Government Publication",
+        tags: ["CYBERSECURITY", "NIST CSF 2.0", "GOVERNMENT"],
+        link: "https://doi.org/10.6028/NIST.SP.800-61r3",
+        citation: "Nelson, A., Rekhi, S., Scarfone, K., & Souppaya, M. (2025). Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile (NIST SP 800-61 Rev 3). National Institute of Standards and Technology.",
+        
+        genreData: {
+          whoWrites: "Cybersecurity researchers, government specialists, and standards technical experts at organizations like NIST.",
+          audience: "Cybersecurity managers, IT administrators, SOC teams, security engineers, and compliance officers.",
+          publisher: "Government agencies (e.g., NIST, CISA) via official repositories.",
+          formats: "Official government PDFs and interactive web standards.",
+          howFound: "Government publications portals, security compliance searches, and technical databases.",
+          purpose: "To provide actionable, standardized guidelines and best practices for managing cybersecurity risks and technical incidents.",
+          subjects: "Cybersecurity risk management, incident response, threat detection, and institutional security posture.",
+          structure: "Introduction, scope, core framework mapping, detailed actionable recommendations, implementation steps, and appendices.",
+          visuals: "Lifecycle flowcharts, framework alignment matrices, structured control tables, and operational workflows.",
+          differences: "Focuses on practical implementation, standardized compliance, and operational governance rather than academic experimentation.",
+          interesting: "NIST guidelines serve as the legal and operational benchmark for enterprise security across both public and private global sectors."
+        },
+
+        textData: {
+          credentials: "Cybersecurity specialists affiliated with NIST and Scarfone Cybersecurity, specializing in risk management and incident response frameworks.",
+          howFound: "Retrieved via direct search on the official NIST Special Publication database.",
+          scope: "Integrating incident response directly into institutional cybersecurity risk management using NIST Cybersecurity Framework (CSF) 2.0.",
+          subject: "Organizational readiness, detection, containment, recovery, and continuous improvement for cybersecurity incidents.",
+          primaryAudience: "CISOs, security engineers, incident response leads, and IT compliance managers.",
+          message: "Incident response must be an integral continuous component of overall cybersecurity risk management rather than a reactive post-breach measure.",
+          organization: "Intro & scope, CSF 2.0 integration, recommendations across Preparation, Detection, Response, Recovery, and Continuous Learning phases.",
+          visuals: "NIST CSF 2.0 alignment matrices, incident lifecycle flow diagrams, and structured decision tables.",
+          significance: "Equips organizations worldwide with an updated, standardized methodology to defend against modern nation-state and enterprise cyber threats."
+        }
+      },
+      {
+        id: 6,
+        textNum: "TEXT 06",
+        title: "The Next-Generation Computing Framework",
+        authors: "World Economic Forum (WEF)",
+        year: "2026",
+        genre: "White Paper",
+        tags: ["TECH POLICY", "COMPUTE INFRA", "WEF 2026"],
+        link: "https://www.weforum.org/publications/the-next-generation-computing-framework",
+        citation: "World Economic Forum. (2026). The Next-Generation Computing Framework. Global Commission on the Future of Next Generation Computing.",
+        
+        genreData: {
+          whoWrites: "Industry commissions, strategy consultancies, technology analysts, and policy organizations.",
+          audience: "Government policymakers, corporate executives, tech investors, and strategic planners.",
+          publisher: "International bodies (e.g., WEF), think tanks, or corporate research arms.",
+          formats: "Visually polished PDFs and interactive executive web reports.",
+          howFound: "Corporate releases, policy summits, media citations, and organization websites.",
+          purpose: "To analyze high-level technology trends, highlight strategic risks, and advocate actionable policy frameworks.",
+          subjects: "Technological strategy, socio-economic impacts, infrastructure investment, and policy regulation.",
+          structure: "Executive summary, intro, core challenge analysis, strategic framework pillars, scorecard/matrix, and actionable recommendations.",
+          visuals: "High-level framework diagrams, metric scorecards, comparative infographics, and trend charts.",
+          differences: "Bridges the gap between complex technical developments and executive decision-making without deep mathematical proofs.",
+          interesting: "White papers shape policy decisions and enterprise capital allocation by framing technical issues in political and economic terms."
+        },
+
+        textData: {
+          credentials: "Published by the World Economic Forum in collaboration with its Global Commission on the Future of Next Generation Computing.",
+          howFound: "Discovered through technological policy web research.",
+          scope: "Infrastructure requirements for AI, quantum computing, digital sovereignty, cyber resilience, and energy sustainability.",
+          subject: "Developing secure, resilient, and environmentally sustainable next-generation computing infrastructure.",
+          primaryAudience: "Government decision-makers, tech executives, infrastructure investors, and policy analysts.",
+          message: "Building next-generation compute requires evaluating tech sovereignty, cyber resilience, and environmental impact together—not just raw speed.",
+          organization: "Introductory challenge analysis, 3-pillar framework introduction (7 dimensions), detailed thematic analysis, assessment scorecard, and policy roadmap.",
+          visuals: "Pillar framework diagrams, interactive scorecard templates, and comparative global compute charts.",
+          significance: "Provides policy leaders with a balanced tool to navigate high-tech investments while mitigating environmental and geopolitical risks."
+        }
+      }
+    ];
+
+    let selectedGenreFilter = "All";
+    let searchQuery = "";
+    let activeItem = null;
+
+    const portfolioGrid = document.getElementById("portfolioGrid");
+    const genreFiltersContainer = document.getElementById("genreFilters");
+    const searchInput = document.getElementById("searchInput");
+    
+    const detailModal = document.getElementById("detailModal");
+    const modalContainer = document.getElementById("modalContainer");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const tabTextAnalysis = document.getElementById("tabTextAnalysis");
+    const tabGenreChar = document.getElementById("tabGenreChar");
+    const contentTextAnalysis = document.getElementById("contentTextAnalysis");
+    const contentGenreChar = document.getElementById("contentGenreChar");
+
+    const modalGenreBadge = document.getElementById("modalGenreBadge");
+    const modalYear = document.getElementById("modalYear");
+    const modalTextNum = document.getElementById("modalTextNum");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalAuthors = document.getElementById("modalAuthors");
+    const modalDirectLink = document.getElementById("modalDirectLink");
+    const modalCitation = document.getElementById("modalCitation");
+    const modalCredentials = document.getElementById("modalCredentials");
+    const modalHowFound = document.getElementById("modalHowFound");
+    const modalScope = document.getElementById("modalScope");
+    const modalPrimaryAudience = document.getElementById("modalPrimaryAudience");
+    const modalMessage = document.getElementById("modalMessage");
+    const modalSignificance = document.getElementById("modalSignificance");
+    const modalTextOrganization = document.getElementById("modalTextOrganization");
+    const modalTextVisuals = document.getElementById("modalTextVisuals");
+
+    const genreOverviewTitle = document.getElementById("genreOverviewTitle");
+    const genreWhoWrites = document.getElementById("genreWhoWrites");
+    const genreAudience = document.getElementById("genreAudience");
+    const genrePublisher = document.getElementById("genrePublisher");
+    const genreFormats = document.getElementById("genreFormats");
+    const genreHowFound = document.getElementById("genreHowFound");
+    const genrePurpose = document.getElementById("genrePurpose");
+    const genreSubjects = document.getElementById("genreSubjects");
+    const genreStructure = document.getElementById("genreStructure");
+    const genreVisuals = document.getElementById("genreVisuals");
+    const genreDifferences = document.getElementById("genreDifferences");
+    const genreInteresting = document.getElementById("genreInteresting");
+
+    function init() {
+      renderGenreFilters();
+      renderGrid();
+      setupEventListeners();
+      lucide.createIcons();
+    }
+
+    function renderGenreFilters() {
+      const genres = ["All", ...new Set(portfolioData.map(item => item.genre))];
+      
+      genreFiltersContainer.innerHTML = genres.map(g => {
+        const isActive = g === selectedGenreFilter;
+        return `
+          <button data-genre="${g}" class="genre-filter-btn px-3 py-1.5 font-mono text-[11px] font-bold uppercase transition ${
+            isActive 
+              ? 'bg-vlr-red text-white border border-vlr-red shadow-sm' 
+              : 'bg-vlr-bg text-vlr-muted hover:text-white border border-vlr-border'
+          }">
+            ${g}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function getFilteredData() {
+      return portfolioData.filter(item => {
+        const matchesGenre = selectedGenreFilter === "All" || item.genre === selectedGenreFilter;
+        const q = searchQuery.toLowerCase();
+        const matchesSearch = 
+          item.title.toLowerCase().includes(q) ||
+          item.authors.toLowerCase().includes(q) ||
+          item.genre.toLowerCase().includes(q) ||
+          item.textData.subject.toLowerCase().includes(q);
+        
+        return matchesGenre && matchesSearch;
+      });
+    }
+
+    function renderGrid() {
+      const filtered = getFilteredData();
+      
+      if (filtered.length === 0) {
+        portfolioGrid.innerHTML = `
+          <div class="col-span-full py-16 text-center space-y-2 bg-vlr-surface border border-vlr-border">
+            <i data-lucide="search-x" class="w-8 h-8 text-vlr-muted mx-auto"></i>
+            <p class="font-mono text-xs text-vlr-muted uppercase">NO MATCHING PAPERS IN DATABASE</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      portfolioGrid.innerHTML = filtered.map(item => {
+        return `
+          <div class="bg-vlr-card hover:bg-vlr-cardHover border border-vlr-border p-4 flex flex-col justify-between transition group">
+            <div class="space-y-3">
+              <!-- Top Metadata bar (VLR Match Card Header) -->
+              <div class="flex items-center justify-between text-[11px] font-mono border-b border-vlr-border pb-2">
+                <span class="text-vlr-cyan font-bold uppercase">${item.genre}</span>
+                <span class="text-vlr-muted">${item.textNum} • ${item.year}</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="font-display text-xl font-bold text-white group-hover:text-vlr-red transition uppercase tracking-wide leading-snug line-clamp-2">
+                ${item.title}
+              </h3>
+
+              <!-- Authors -->
+              <p class="text-xs font-mono text-vlr-muted line-clamp-1">
+                ${item.authors}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-1">
+                ${item.tags.map(t => `<span class="px-2 py-0.5 bg-vlr-surface border border-vlr-border text-[10px] font-mono text-vlr-light uppercase">${t}</span>`).join('')}
+              </div>
+
+              <!-- Subject Snippet -->
+              <p class="text-xs text-vlr-muted leading-relaxed line-clamp-3 bg-vlr-surface p-2.5 border border-vlr-border">
+                ${item.textData.subject}
+              </p>
+            </div>
+
+            <!-- Action Buttons (VLR Style) -->
+            <div class="mt-4 pt-3 border-t border-vlr-border flex items-center gap-2">
+              <button onclick="openModal(${item.id})" class="flex-1 py-2 bg-vlr-surface hover:bg-vlr-border text-white font-mono text-xs font-bold uppercase transition flex items-center justify-center gap-1.5 border border-vlr-border">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-vlr-cyan"></i> INSPECT TEXT
+              </button>
+              
+              <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="p-2 bg-vlr-red hover:bg-vlr-redHover text-white transition border border-vlr-red" title="Direct Link">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    window.openModal = function(id) {
+      activeItem = portfolioData.find(d => d.id === id);
+      if (!activeItem) return;
+
+      modalGenreBadge.innerText = activeItem.genre;
+      modalYear.innerText = activeItem.year;
+      modalTextNum.innerText = activeItem.textNum;
+      modalTitle.innerText = activeItem.title;
+      modalAuthors.innerText = activeItem.authors;
+      modalDirectLink.href = activeItem.link;
+
+      modalCitation.innerText = activeItem.citation;
+      modalCredentials.innerText = activeItem.textData.credentials;
+      modalHowFound.innerText = activeItem.textData.howFound;
+      modalScope.innerText = activeItem.textData.scope;
+      modalPrimaryAudience.innerText = activeItem.textData.primaryAudience;
+      modalMessage.innerText = activeItem.textData.message;
+      modalSignificance.innerText = activeItem.textData.significance;
+      modalTextOrganization.innerText = activeItem.textData.organization;
+      modalTextVisuals.innerText = activeItem.textData.visuals;
+
+      genreOverviewTitle.innerText = activeItem.genre;
+      genreWhoWrites.innerText = activeItem.genreData.whoWrites;
+      genreAudience.innerText = activeItem.genreData.audience;
+      genrePublisher.innerText = activeItem.genreData.publisher;
+      genreFormats.innerText = activeItem.genreData.formats;
+      genreHowFound.innerText = activeItem.genreData.howFound;
+      genrePurpose.innerText = activeItem.genreData.purpose;
+      genreSubjects.innerText = activeItem.genreData.subjects;
+      genreStructure.innerText = activeItem.genreData.structure;
+      genreVisuals.innerText = activeItem.genreData.visuals;
+      genreDifferences.innerText = activeItem.genreData.differences;
+      genreInteresting.innerText = activeItem.genreData.interesting;
+
+      switchTab("textAnalysis");
+
+      detailModal.classList.remove("hidden");
+      setTimeout(() => {
+        detailModal.classList.remove("opacity-0");
+        modalContainer.classList.remove("scale-95");
+        modalContainer.classList.add("scale-100");
+      }, 10);
+
+      document.body.style.overflow = "hidden";
+    };
+
+    function closeModal() {
+      detailModal.classList.add("opacity-0");
+      modalContainer.classList.remove("scale-100");
+      modalContainer.classList.add("scale-95");
+      setTimeout(() => {
+        detailModal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }, 150);
+    }
+
+    function switchTab(tab) {
+      if (tab === "textAnalysis") {
+        tabTextAnalysis.className = "px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition";
+        tabGenreChar.className = "px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition";
+        contentTextAnalysis.classList.remove("hidden");
+        contentGenreChar.classList.add("hidden");
+      } else {
+        tabGenreChar.className = "px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition";
+        tabTextAnalysis.className = "px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition";
+        contentGenreChar.classList.remove("hidden");
+        contentTextAnalysis.classList.add("hidden");
+      }
+    }
+
+    function setupEventListeners() {
+      genreFiltersContainer.addEventListener("click", (e) => {
+        const btn = e.target.closest(".genre-filter-btn");
+        if (!btn) return;
+        selectedGenreFilter = btn.dataset.genre;
+        renderGenreFilters();
+        renderGrid();
+      });
+
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        renderGrid();
+      });
+
+      tabTextAnalysis.addEventListener("click", () => switchTab("textAnalysis"));
+      tabGenreChar.addEventListener("click", () => switchTab("genreChar"));
+
+      closeModalBtn.addEventListener("click", closeModal);
+      detailModal.addEventListener("click", (e) => {
+        if (e.target === detailModal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !detailModal.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
