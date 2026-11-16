@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading Portfolio | Zichuan Yin & Diego Villanueva</title>
+  <title>Reading Index | Zichuan Yin & Diego Villanueva</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -19,7 +19,7 @@
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
-            display: ['Teko', 'sans-serif'],
+            display: ['Roboto Condensed', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
@@ -31,7 +31,7 @@
               border: '#2a3744',
               red: '#ff4655',
               redHover: '#e03e4d',
-              cyan: '#00f0ff',
+              cyan: '#9aa9b8',
               muted: '#76889b',
               light: '#ece8e1'
             }
@@ -59,106 +59,115 @@
     .vlr-border {
       border: 1px solid #2a3744;
     }
-    .vlr-tag {
-      background: #0f1923;
-      border: 1px solid #2a3744;
-    }
+    .vlr-tag { background: #0f1923; border: 1px solid #2a3744; }
+    html { scroll-behavior: smooth; }
+    body { background-image: radial-gradient(ellipse at 50% -25%, rgba(255,70,85,.075), transparent 55%); }
+    .nav-link { color: #9aa7b5; font: 700 11px 'JetBrains Mono', monospace; letter-spacing: .08em; transition: color .18s ease; }
+    .nav-link:hover, .nav-link.active { color: #ff4655; }
+    .panel-heading { color: #e8edf2; font: 700 12px 'JetBrains Mono', monospace; letter-spacing: .06em; }
+    .stat-number { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
+    .publication-card { transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+    .publication-card:hover { transform: translateY(-2px); border-color: #526273; }
+    @media (max-width: 640px) { .desktop-nav { gap: 1rem; } .brand-subtitle { display: none; } }
   </style>
 </head>
 <body class="bg-vlr-bg text-vlr-light font-sans min-h-screen flex flex-col antialiased selection:bg-vlr-red selection:text-white">
 
-  <!-- Header -->
-  <header class="bg-vlr-surface border-b border-vlr-border sticky top-0 z-30">
-    <!-- Top thin status bar -->
-    <div class="bg-vlr-bg border-b border-vlr-border px-4 py-1.5 flex justify-between items-center text-[11px] font-mono text-vlr-muted">
-      <div class="flex items-center gap-3">
-        <span class="flex items-center gap-1.5 text-vlr-cyan">
-          <span class="w-2 h-2 rounded-full bg-vlr-cyan animate-pulse"></span>
-          LIVE DATABASE
-        </span>
-        <span class="text-vlr-border">|</span>
-        <span>INDEXED: 8 TEXT GENRES</span>
-      </div>
-      <div class="hidden sm:flex items-center gap-4">
-        <span>AUTHOR 1: <strong class="text-vlr-light">ZICHUAN YIN</strong></span>
-        <span>AUTHOR 2: <strong class="text-vlr-light">DIEGO VILLANUEVA</strong></span>
-      </div>
-    </div>
-
-    <!-- Main VLR Navigation Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-4">
-        <div class="w-10 h-10 bg-vlr-red flex items-center justify-center font-display text-2xl font-bold text-white tracking-widest shadow-md">
-          RP
-        </div>
-        <div>
-          <h1 class="font-display text-2xl tracking-wider uppercase leading-none text-white font-bold">
-            READING PORTFOLIO <span class="text-vlr-red">//</span> RESEARCH DB
-          </h1>
-          <p class="text-[11px] font-mono text-vlr-muted tracking-tight">ACADEMIC & TECHNICAL GENRE DISCOURSE ANALYZER</p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <a href="https://canva.link/e0qtai4zcn8v6xk" target="_blank" rel="noopener noreferrer" 
-           class="px-4 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-xs font-bold tracking-wider uppercase transition flex items-center gap-2 border border-vlr-red shadow-sm">
-          <i data-lucide="presentation" class="w-4 h-4"></i>
-          <span>CANVA PRESENTATION</span>
-          <i data-lucide="external-link" class="w-3 h-3"></i>
+  <!-- Site navigation -->
+  <header class="bg-vlr-surface/95 border-b border-vlr-border sticky top-0 z-30 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="min-h-[68px] flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3">
+        <a href="#top" class="flex items-center gap-3 min-w-0" aria-label="Reading Index home">
+          <div class="w-9 h-9 shrink-0 border border-vlr-red/70 bg-vlr-red/10 flex items-center justify-center text-vlr-red">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="font-display text-[25px] sm:text-[28px] leading-none tracking-wide font-bold text-white">READING<span class="text-vlr-red">.</span>INDEX</div>
+            <p class="brand-subtitle text-[9px] mt-1 font-mono tracking-[.13em] text-vlr-muted">COMPUTER SCIENCE & CYBERSECURITY CORPUS</p>
+          </div>
+        </a>
+        <nav class="desktop-nav flex items-center gap-5 sm:gap-7" aria-label="Main navigation">
+          <a class="nav-link active" href="#top">OVERVIEW</a>
+          <a class="nav-link" href="#texts">TEXTS</a>
+          <a class="nav-link" href="#genreFilters">GENRES</a>
+          <a class="nav-link" href="#about">ABOUT</a>
+        </nav>
+        <a href="https://docs.google.com/document/d/1zPIj9ySz-RXC6vXOXCf60afLa7dgcxwN-H3uAGr5UlQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-2 px-3 py-2 border border-vlr-border text-vlr-light hover:border-vlr-red hover:text-white text-[10px] font-mono font-bold tracking-wider transition">
+          <i data-lucide="database" class="w-4 h-4 text-vlr-red"></i> DOCS DATABASE <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-    
-    <!-- Hero / Tournament Banner Header Style -->
-    <section class="bg-vlr-card border border-vlr-border p-5 relative overflow-hidden">
-      <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-vlr-red/10 to-transparent pointer-events-none"></div>
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
-        <div class="space-y-1">
-          <div class="inline-flex items-center gap-2 px-2 py-0.5 bg-vlr-surface border border-vlr-border text-[11px] font-mono text-vlr-cyan uppercase">
-            <i data-lucide="database" class="w-3 h-3"></i> Comparative Corpus Analysis
-          </div>
-          <h2 class="font-display text-2xl sm:text-3xl text-white font-bold tracking-wide uppercase">
-            10 CRITICAL TEXT GENRES IN COMPUTER SCIENCE & CYBERSECURITY
-          </h2>
-          <p class="text-vlr-muted text-xs leading-relaxed max-w-4xl">
-            Inspect structural conventions, target audiences, visual elements, and real-world implications across Conference Proceedings, Research Journals, Preprints, Reviews, Government Guides, White Papers, and Academic Blogs.
-          </p>
+  <main id="top" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-6">
+    <!-- Compact overview -->
+    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-5 items-stretch">
+      <div class="bg-vlr-card border border-vlr-border p-5 sm:p-7 relative overflow-hidden">
+        <div class="absolute right-0 top-0 h-full w-1 bg-vlr-red"></div>
+        <div class="flex items-center gap-2 text-[10px] font-mono font-bold tracking-[.15em] text-vlr-red uppercase mb-3">
+          <span class="w-1.5 h-1.5 bg-vlr-red rounded-full"></span> Research collection / 2026
         </div>
-        <div class="flex items-center gap-4 border-t md:border-t-0 md:border-l border-vlr-border pt-3 md:pt-0 md:pl-6">
-          <div class="text-center font-mono">
-            <span class="block text-2xl font-bold font-display text-vlr-red">8/10</span>
-            <span class="text-[10px] text-vlr-muted uppercase">ANALYZED</span>
-          </div>
-          <div class="text-center font-mono">
-            <span class="block text-2xl font-bold font-display text-vlr-cyan">80%</span>
-            <span class="text-[10px] text-vlr-muted uppercase">LOADING</span>
-          </div>
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-[42px] leading-[1.05] text-white font-bold uppercase max-w-3xl">A closer look at the texts shaping computer science.</h1>
+        <p class="mt-3 text-sm text-vlr-muted leading-relaxed max-w-2xl">Explore how technical and academic publications communicate research, explain ideas, and reach their audiences across computer science and cybersecurity.</p>
+        <div class="mt-6 flex flex-wrap gap-x-7 gap-y-3 border-t border-vlr-border pt-4">
+          <div><span id="totalTexts" class="stat-number text-2xl text-white">8</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">TEXTS INDEXED</span></div>
+          <div><span id="totalGenres" class="stat-number text-2xl text-white">7</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">GENRES COVERED</span></div>
+          <div><span class="stat-number text-2xl text-white">2026</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">PORTFOLIO YEAR</span></div>
         </div>
+      </div>
+      <aside class="bg-vlr-surface border border-vlr-border p-5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-vlr-border pb-3 mb-4">
+            <h2 class="panel-heading">PROJECT DETAILS</h2><i data-lucide="info" class="w-4 h-4 text-vlr-muted"></i>
+          </div>
+          <dl class="space-y-4 text-xs">
+            <div><dt class="text-[9px] font-mono tracking-widest text-vlr-muted mb-1">AUTHORS</dt><dd class="text-vlr-light">Zichuan Yin & Diego Villanueva</dd></div>
+            <div><dt class="text-[9px] font-mono tracking-widest text-vlr-muted mb-1">FOCUS</dt><dd class="text-vlr-light">Academic and technical genre analysis</dd></div>
+            <div><dt class="text-[9px] font-mono tracking-widest text-vlr-muted mb-1">COLLECTION</dt><dd class="text-vlr-light">Computer Science & Cybersecurity</dd></div>
+          </dl>
+        </div>
+        <a href="https://docs.google.com/document/d/1zPIj9ySz-RXC6vXOXCf60afLa7dgcxwN-H3uAGr5UlQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-5 flex items-center justify-between border-t border-vlr-border pt-3 text-[10px] font-mono font-bold tracking-wider text-vlr-red hover:text-white transition">VIEW PROJECT DATABASE <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+      </aside>
+    </section>
+
+    <!-- Search and genre navigation -->
+    <section id="texts" class="bg-vlr-surface border border-vlr-border">
+      <div class="p-3 sm:p-4 flex flex-col lg:flex-row lg:items-center gap-3">
+        <div class="relative flex-1 min-w-0">
+          <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-vlr-muted"></i>
+          <input type="text" id="searchInput" placeholder="Search titles, authors, topics or keywords..." aria-label="Search publications" class="w-full pl-10 pr-3 py-3 bg-vlr-bg border border-vlr-border text-xs text-white placeholder-vlr-muted focus:outline-none focus:border-vlr-red transition">
+        </div>
+        <div class="text-[10px] font-mono text-vlr-muted whitespace-nowrap"><span id="resultCount" class="text-white font-bold">8</span> RESULTS</div>
+      </div>
+      <div class="border-t border-vlr-border px-3 sm:px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+        <span class="text-[9px] font-mono font-bold tracking-widest text-vlr-muted shrink-0">FILTER BY GENRE</span>
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="genreFilters"><!-- Dynamic filters --></div>
       </div>
     </section>
 
-    <!-- Controls & Match Filters -->
-    <section class="bg-vlr-surface p-3 border border-vlr-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-      <!-- Search Input -->
-      <div class="relative flex-1 min-w-[240px]">
-        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-vlr-muted"></i>
-        <input type="text" id="searchInput" placeholder="SEARCH PAPERS, AUTHORS, KEYWORDS..." 
-               class="w-full pl-9 pr-3 py-2 bg-vlr-bg border border-vlr-border text-xs font-mono text-white placeholder-vlr-muted focus:outline-none focus:border-vlr-red transition uppercase">
+    <!-- Publication feed + contextual sidebar -->
+    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-5 items-start">
+      <div class="min-w-0">
+        <div class="flex items-end justify-between mb-3">
+          <div><p class="text-[9px] font-mono tracking-[.15em] text-vlr-red mb-1">THE COLLECTION</p><h2 class="font-display text-2xl text-white font-bold uppercase">Published texts</h2></div>
+          <span class="text-[9px] font-mono text-vlr-muted">SORT: PORTFOLIO ORDER</span>
+        </div>
+        <div id="portfolioGrid" class="grid grid-cols-1 gap-2.5"><!-- Rendered via JS --></div>
       </div>
-
-      <!-- Genre Pills (VLR Event Filter Tags) -->
-      <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 md:py-0" id="genreFilters">
-        <!-- Dynamic Filter Tags -->
-      </div>
-    </section>
-
-    <!-- Match Card Grid -->
-    <section id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Rendered via JS -->
+      <aside class="space-y-4">
+        <section class="bg-vlr-surface border border-vlr-border p-4">
+          <div class="flex items-center justify-between border-b border-vlr-border pb-3 mb-3"><h3 class="panel-heading">GENRE BREAKDOWN</h3><i data-lucide="chart-no-axes-column" class="w-4 h-4 text-vlr-muted"></i></div>
+          <div id="genreStats" class="space-y-3"><!-- Generated from dataset --></div>
+        </section>
+        <section class="bg-vlr-surface border border-vlr-border p-4">
+          <div class="flex items-center gap-2 border-b border-vlr-border pb-3 mb-3"><i data-lucide="book-marked" class="w-4 h-4 text-vlr-red"></i><h3 class="panel-heading">HOW TO USE THIS INDEX</h3></div>
+          <p class="text-xs leading-relaxed text-vlr-muted">Select a publication to inspect its source, citation, audience, purpose, structure, and key findings. Use the genre profile tab to compare the conventions of its publication type.</p>
+        </section>
+        <section class="bg-vlr-surface border border-vlr-border p-4" id="about">
+          <h3 class="panel-heading border-b border-vlr-border pb-3 mb-3">ABOUT THE PROJECT</h3>
+          <p class="text-xs leading-relaxed text-vlr-muted">A comparative reading portfolio documenting how different forms of technical and academic writing work within computer science and cybersecurity.</p>
+        </section>
+      </aside>
     </section>
   </main>
 
@@ -166,11 +175,11 @@
   <footer class="border-t border-vlr-border mt-12 bg-vlr-surface text-vlr-muted text-xs py-6 font-mono">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <div class="w-6 h-6 bg-vlr-red flex items-center justify-center font-display text-sm font-bold text-white">RP</div>
-        <span>READING PORTFOLIO // FOR ALTHEA DANIELSKI</span>
+        <i data-lucide="book-open" class="w-4 h-4 text-vlr-red"></i>
+        <span>READING.INDEX // ACADEMIC & TECHNICAL CORPUS</span>
       </div>
       <div>
-        <span>ZICHUAN YIN & DIEGO VILLANUEVA c: 2026</span>
+        <span>ZICHUAN YIN & DIEGO VILLANUEVA © 2026</span>
       </div>
     </div>
   </footer>
@@ -711,6 +720,7 @@
 
     function init() {
       renderGenreFilters();
+      renderOverviewStats();
       renderGrid();
       setupEventListeners();
       lucide.createIcons();
@@ -741,7 +751,10 @@
           item.title.toLowerCase().includes(q) ||
           item.authors.toLowerCase().includes(q) ||
           item.genre.toLowerCase().includes(q) ||
-          item.textData.subject.toLowerCase().includes(q);
+          item.tags.some(tag => tag.toLowerCase().includes(q)) ||
+          item.textData.subject.toLowerCase().includes(q) ||
+          item.textData.message.toLowerCase().includes(q) ||
+          item.textData.scope.toLowerCase().includes(q);
         
         return matchesGenre && matchesSearch;
       });
@@ -749,64 +762,66 @@
 
     function renderGrid() {
       const filtered = getFilteredData();
-      
+      const resultCount = document.getElementById("resultCount");
+      if (resultCount) resultCount.textContent = filtered.length;
+
       if (filtered.length === 0) {
         portfolioGrid.innerHTML = `
-          <div class="col-span-full py-16 text-center space-y-2 bg-vlr-surface border border-vlr-border">
-            <i data-lucide="search-x" class="w-8 h-8 text-vlr-muted mx-auto"></i>
-            <p class="font-mono text-xs text-vlr-muted uppercase">NO MATCHING PAPERS IN DATABASE</p>
-          </div>
-        `;
+          <div class="py-14 text-center bg-vlr-card border border-vlr-border">
+            <i data-lucide="search-x" class="w-8 h-8 text-vlr-muted mx-auto mb-3"></i>
+            <p class="font-mono text-xs text-vlr-light uppercase">No publications found</p>
+            <p class="text-xs text-vlr-muted mt-1">Try another title, author, topic or genre.</p>
+          </div>`;
         lucide.createIcons();
         return;
       }
 
-      portfolioGrid.innerHTML = filtered.map(item => {
-        return `
-          <div class="bg-vlr-card hover:bg-vlr-cardHover border border-vlr-border p-4 flex flex-col justify-between transition group">
-            <div class="space-y-3">
-              <!-- Top Metadata bar (VLR Match Card Header) -->
-              <div class="flex items-center justify-between text-[11px] font-mono border-b border-vlr-border pb-2">
-                <span class="text-vlr-cyan font-bold uppercase">${item.genre}</span>
-                <span class="text-vlr-muted">${item.textNum} • ${item.year}</span>
-              </div>
-
-              <!-- Title -->
-              <h3 class="font-display text-xl font-bold text-white group-hover:text-vlr-red transition uppercase tracking-wide leading-snug line-clamp-2">
-                ${item.title}
-              </h3>
-
-              <!-- Authors -->
-              <p class="text-xs font-mono text-vlr-muted line-clamp-1">
-                ${item.authors}
-              </p>
-
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-1">
-                ${item.tags.map(t => `<span class="px-2 py-0.5 bg-vlr-surface border border-vlr-border text-[10px] font-mono text-vlr-light uppercase">${t}</span>`).join('')}
-              </div>
-
-              <!-- Subject Snippet -->
-              <p class="text-xs text-vlr-muted leading-relaxed line-clamp-3 bg-vlr-surface p-2.5 border border-vlr-border">
-                ${item.textData.subject}
-              </p>
-            </div>
-
-            <!-- Action Buttons (VLR Style) -->
-            <div class="mt-4 pt-3 border-t border-vlr-border flex items-center gap-2">
-              <button onclick="openModal(${item.id})" class="flex-1 py-2 bg-vlr-surface hover:bg-vlr-border text-white font-mono text-xs font-bold uppercase transition flex items-center justify-center gap-1.5 border border-vlr-border">
-                <i data-lucide="eye" class="w-3.5 h-3.5 text-vlr-cyan"></i> INSPECT TEXT
+      portfolioGrid.innerHTML = filtered.map(item => `
+        <article class="publication-card bg-vlr-card border border-vlr-border p-4 sm:p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-vlr-border pb-3 mb-3">
+            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-vlr-red">${item.genre}</span>
+            <span class="text-[10px] font-mono text-vlr-muted">${item.textNum} <span class="text-vlr-border mx-1">/</span> ${item.year}</span>
+          </div>
+          <h3 class="font-display text-[21px] sm:text-[23px] leading-tight font-bold text-white uppercase tracking-wide">${item.title}</h3>
+          <p class="text-[11px] text-vlr-muted mt-2 leading-relaxed">${item.authors}</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">${item.tags.map(t => `<span class="px-2 py-1 bg-vlr-bg border border-vlr-border text-[9px] font-mono text-vlr-muted tracking-wide">${t}</span>`).join('')}</div>
+          <div class="mt-4 pt-3 border-t border-vlr-border flex items-center justify-between gap-3">
+            <span class="text-[10px] text-vlr-muted font-mono truncate">${item.year} <span class="mx-1 text-vlr-border">/</span> ${item.genre}</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="openModal(${item.id})" class="px-3 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-[10px] font-bold tracking-wider uppercase transition flex items-center gap-2">
+                VIEW ANALYSIS <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
               </button>
-              
-              <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="p-2 bg-vlr-red hover:bg-vlr-redHover text-white transition border border-vlr-red" title="Direct Link">
-                <i data-lucide="external-link" class="w-4 h-4"></i>
-              </a>
+              <a href="${item.link}" target="_blank" rel="noopener noreferrer" aria-label="Open original publication" title="Open original publication" class="p-2 border border-vlr-border text-vlr-muted hover:text-white hover:border-vlr-red transition"><i data-lucide="external-link" class="w-4 h-4"></i></a>
             </div>
           </div>
-        `;
-      }).join('');
+        </article>
+      `).join('');
 
       lucide.createIcons();
+    }
+
+    function renderOverviewStats() {
+      const total = portfolioData.length;
+      const genreCounts = portfolioData.reduce((counts, item) => {
+        counts[item.genre] = (counts[item.genre] || 0) + 1;
+        return counts;
+      }, {});
+      document.getElementById("totalTexts").textContent = total;
+      document.getElementById("totalGenres").textContent = Object.keys(genreCounts).length;
+      document.getElementById("resultCount").textContent = total;
+      const stats = document.getElementById("genreStats");
+      const sorted = Object.entries(genreCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+      stats.innerHTML = sorted.map(([genre, count]) => `
+        <button type="button" data-genre="${genre}" class="genre-stat w-full text-left group">
+          <div class="flex items-center justify-between gap-2 mb-1.5"><span class="text-[10px] text-vlr-muted group-hover:text-white transition">${genre}</span><span class="text-[10px] font-mono text-vlr-light">${count}</span></div>
+          <div class="h-1 bg-vlr-bg overflow-hidden"><div class="h-full bg-vlr-red" style="width:${(count / total) * 100}%"></div></div>
+        </button>`).join('');
+      stats.querySelectorAll('.genre-stat').forEach(button => button.addEventListener('click', () => {
+        selectedGenreFilter = button.dataset.genre;
+        renderGenreFilters();
+        renderGrid();
+        document.getElementById('texts').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }));
     }
 
     window.openModal = function(id) {
