@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="description" content="A reading portfolio exploring academic and technical writing across computer science and cybersecurity.">
   <title>Reading Index | Zichuan Yin & Diego Villanueva</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -60,21 +62,60 @@
       border: 1px solid #2a3744;
     }
     .vlr-tag { background: #0f1923; border: 1px solid #2a3744; }
-    html { scroll-behavior: smooth; }
-    body { background-image: radial-gradient(ellipse at 50% -25%, rgba(255,70,85,.075), transparent 55%); }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { overflow-x: hidden; background-image: radial-gradient(ellipse at 50% -25%, rgba(255,70,85,.075), transparent 55%); }
     .nav-link { color: #9aa7b5; font: 700 11px 'JetBrains Mono', monospace; letter-spacing: .08em; transition: color .18s ease; }
     .nav-link:hover, .nav-link.active { color: #ff4655; }
     .panel-heading { color: #e8edf2; font: 700 12px 'JetBrains Mono', monospace; letter-spacing: .06em; }
     .stat-number { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
     .publication-card { transition: border-color .18s ease, background .18s ease, transform .18s ease; }
-    .publication-card:hover { transform: translateY(-2px); border-color: #526273; }
-    @media (max-width: 640px) { .desktop-nav { gap: 1rem; } .brand-subtitle { display: none; } }
+    .publication-card:hover { transform: translateY(-2px); border-color: #526273; background: #1b2732; }
+    .publication-card .text-index { color: #536474; transition: color .18s ease; }
+    .publication-card:hover .text-index { color: #ff4655; }
+    .publication-card .meta-label { color: #76889b; font: 700 9px 'JetBrains Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .publication-card .meta-value { color: #c7d0d9; font-size: 11px; line-height: 1.55; }
+    .publication-card .tag-chip { border: 1px solid #344454; background: #0b0e14; color: #9aa9b8; padding: 3px 7px; font: 500 9px 'JetBrains Mono', monospace; letter-spacing: .04em; }
+    .publication-card .card-action { min-height: 34px; }
+    .detail-kicker { color:#76889b; font:700 9px 'JetBrains Mono',monospace; letter-spacing:.12em; margin-bottom:5px; }
+    .detail-overview-value { color:#d8e0e8; font-size:11px; line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .detail-nav-btn { width:29px; height:27px; display:inline-flex; align-items:center; justify-content:center; border:1px solid #2a3744; color:#9aa9b8; background:#0f1923; transition:all .16s ease; }
+    .detail-nav-btn:hover:not(:disabled) { color:#fff; border-color:#ff4655; background:#ff4655; }
+    .detail-nav-btn:disabled { opacity:.3; cursor:not-allowed; }
+    .detail-copy-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 8px; border:1px solid #2a3744; color:#9aa9b8; font:700 9px 'JetBrains Mono',monospace; letter-spacing:.04em; transition:all .16s ease; }
+    .detail-copy-btn:hover { color:#fff; border-color:#ff4655; }
+    .detail-section-heading { display:flex; align-items:center; gap:12px; border-bottom:1px solid #2a3744; padding-bottom:12px; }
+    .detail-section-heading > span { color:#ff4655; font:700 23px 'Roboto Condensed',sans-serif; }
+    .detail-section-heading p { color:#ece8e1; font:700 11px 'JetBrains Mono',monospace; letter-spacing:.1em; }
+    .detail-section-heading small { display:block; color:#76889b; font:10px 'Inter',sans-serif; margin-top:3px; }
+    :focus-visible { outline: 2px solid #ff4655; outline-offset: 3px; }
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 14px; background: #ff4655; color: #fff; font: 700 11px 'JetBrains Mono', monospace; }
+    .skip-link:focus { top: 10px; }
+    .publication-card:focus-within { border-color: #9aa9b8; }
+    .genre-filter-btn, .nav-link, button, a { -webkit-tap-highlight-color: transparent; }
+    @media (max-width: 760px) {
+      .desktop-nav { width: 100%; justify-content: space-between; gap: .5rem; padding-top: 4px; border-top: 1px solid #2a3744; }
+      .nav-link { font-size: 10px; }
+      .brand-subtitle { display: none; }
+      #modalContainer { max-height: 96dvh; }
+      #detailModal { align-items: flex-start; padding: 8px; }
+      #detailModal .sticky.top-\[108px\] { top: 0; }
+    }
+    @media (max-width: 420px) {
+      header .font-display { font-size: 22px; }
+      #modalTitle { font-size: 1.35rem; }
+      #tabTextAnalysis, #tabGenreChar { flex: 1; justify-content: center; padding-left: 8px; padding-right: 8px; font-size: 9px; }
+      #modalContainer > .p-5 { padding: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
   </style>
 </head>
 <body class="bg-vlr-bg text-vlr-light font-sans min-h-screen flex flex-col antialiased selection:bg-vlr-red selection:text-white">
+  <a class="skip-link" href="#mainContent">SKIP TO CONTENT</a>
 
   <!-- Site navigation -->
-  <header class="bg-vlr-surface/95 border-b border-vlr-border sticky top-0 z-30 backdrop-blur-md">
+  <header id="top" class="bg-vlr-surface/95 border-b border-vlr-border sticky top-0 z-30 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="min-h-[68px] flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3">
         <a href="#top" class="flex items-center gap-3 min-w-0" aria-label="Reading Index home">
@@ -99,7 +140,7 @@
     </div>
   </header>
 
-  <main id="top" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-6">
+  <main id="mainContent" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-6">
     <!-- Compact overview -->
     <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-5 items-stretch">
       <div class="bg-vlr-card border border-vlr-border p-5 sm:p-7 relative overflow-hidden">
@@ -110,8 +151,8 @@
         <h1 class="font-display text-3xl sm:text-4xl lg:text-[42px] leading-[1.05] text-white font-bold uppercase max-w-3xl">A closer look at the texts shaping computer science.</h1>
         <p class="mt-3 text-sm text-vlr-muted leading-relaxed max-w-2xl">Explore how technical and academic publications communicate research, explain ideas, and reach their audiences across computer science and cybersecurity.</p>
         <div class="mt-6 flex flex-wrap gap-x-7 gap-y-3 border-t border-vlr-border pt-4">
-          <div><span id="totalTexts" class="stat-number text-2xl text-white">8</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">TEXTS INDEXED</span></div>
-          <div><span id="totalGenres" class="stat-number text-2xl text-white">7</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">GENRES COVERED</span></div>
+          <div><span id="totalTexts" class="stat-number text-2xl text-white">9</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">TEXTS INDEXED</span></div>
+          <div><span id="totalGenres" class="stat-number text-2xl text-white">8</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">GENRES COVERED</span></div>
           <div><span class="stat-number text-2xl text-white">2026</span><span class="block text-[9px] mt-0.5 text-vlr-muted font-mono tracking-wider">PORTFOLIO YEAR</span></div>
         </div>
       </div>
@@ -131,17 +172,17 @@
     </section>
 
     <!-- Search and genre navigation -->
-    <section id="texts" class="bg-vlr-surface border border-vlr-border">
+    <section id="texts" class="bg-vlr-surface border border-vlr-border scroll-mt-24">
       <div class="p-3 sm:p-4 flex flex-col lg:flex-row lg:items-center gap-3">
         <div class="relative flex-1 min-w-0">
           <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-vlr-muted"></i>
           <input type="text" id="searchInput" placeholder="Search titles, authors, topics or keywords..." aria-label="Search publications" class="w-full pl-10 pr-3 py-3 bg-vlr-bg border border-vlr-border text-xs text-white placeholder-vlr-muted focus:outline-none focus:border-vlr-red transition">
         </div>
-        <div class="text-[10px] font-mono text-vlr-muted whitespace-nowrap"><span id="resultCount" class="text-white font-bold">8</span> RESULTS</div>
+        <div class="text-[10px] font-mono text-vlr-muted whitespace-nowrap" aria-live="polite" aria-atomic="true"><span id="resultCount" class="text-white font-bold">9</span> RESULTS</div>
       </div>
       <div class="border-t border-vlr-border px-3 sm:px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
         <span class="text-[9px] font-mono font-bold tracking-widest text-vlr-muted shrink-0">FILTER BY GENRE</span>
-        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="genreFilters"><!-- Dynamic filters --></div>
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="genreFilters" role="group" aria-label="Filter publications by genre"><!-- Dynamic filters --></div>
       </div>
     </section>
 
@@ -150,9 +191,9 @@
       <div class="min-w-0">
         <div class="flex items-end justify-between mb-3">
           <div><p class="text-[9px] font-mono tracking-[.15em] text-vlr-red mb-1">THE COLLECTION</p><h2 class="font-display text-2xl text-white font-bold uppercase">Published texts</h2></div>
-          <span class="text-[9px] font-mono text-vlr-muted">SORT: PORTFOLIO ORDER</span>
+          <span class="text-[9px] font-mono text-vlr-muted">INDEXED ENTRIES / <span id="feedResultCount">9</span></span>
         </div>
-        <div id="portfolioGrid" class="grid grid-cols-1 gap-2.5"><!-- Rendered via JS --></div>
+        <div id="portfolioGrid" class="grid grid-cols-1 gap-2.5" aria-live="polite" aria-busy="false"><!-- Rendered via JS --></div>
       </div>
       <aside class="space-y-4">
         <section class="bg-vlr-surface border border-vlr-border p-4">
@@ -185,33 +226,40 @@
   </footer>
 
   <!-- Detail Modal (VLR Match Inspector) -->
-  <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-vlr-bg/90 backdrop-blur-sm overflow-y-auto opacity-0 transition-opacity duration-200">
-    <div id="modalContainer" class="relative w-full max-w-4xl bg-vlr-card border border-vlr-border shadow-2xl flex flex-col max-h-[92vh] transform scale-95 transition-transform duration-200">
+  <div id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-vlr-bg/90 backdrop-blur-sm overflow-y-auto opacity-0 transition-opacity duration-200">
+    <div id="modalContainer" tabindex="-1" class="relative w-full max-w-4xl bg-vlr-card border border-vlr-border shadow-2xl flex flex-col max-h-[92vh] transform scale-95 transition-transform duration-200">
       
-      <!-- Modal Top Bar -->
-      <div class="p-4 border-b border-vlr-border bg-vlr-surface flex items-start justify-between gap-4 sticky top-0 z-10">
-        <div class="space-y-1 max-w-3xl">
-          <div class="flex items-center gap-2">
-            <span id="modalGenreBadge" class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-vlr-red text-white">GENRE</span>
-            <span id="modalYear" class="text-xs font-mono text-vlr-cyan font-bold">YEAR</span>
-            <span class="text-vlr-border">|</span>
-            <span id="modalTextNum" class="text-xs font-mono text-vlr-muted">TEXT ID</span>
+      <!-- Modal Top Bar / Publication identity -->
+      <div class="p-4 sm:p-5 border-b border-vlr-border bg-vlr-surface flex items-start justify-between gap-4 sticky top-0 z-20">
+        <div class="space-y-2 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="modalGenreBadge" class="px-2 py-1 text-[9px] font-mono font-bold uppercase tracking-wider bg-vlr-red text-white">GENRE</span>
+            <span id="modalYear" class="text-[11px] font-mono text-vlr-cyan font-bold">YEAR</span>
+            <span class="text-vlr-border">/</span>
+            <span id="modalTextNum" class="text-[10px] font-mono text-vlr-muted">TEXT ID</span>
           </div>
-          <h2 id="modalTitle" class="font-display text-2xl text-white font-bold tracking-wide uppercase leading-tight">TITLE</h2>
-          <p id="modalAuthors" class="text-xs font-mono text-vlr-muted">AUTHORS</p>
+          <h2 id="modalTitle" class="font-display text-2xl sm:text-3xl text-white font-bold tracking-wide uppercase leading-tight">TITLE</h2>
+          <p id="modalAuthors" class="text-[10px] sm:text-xs font-mono text-vlr-muted">AUTHORS</p>
         </div>
-        <button id="closeModalBtn" class="p-2 text-vlr-muted hover:text-white bg-vlr-bg hover:bg-vlr-surface border border-vlr-border transition">
+        <button id="closeModalBtn" aria-label="Close publication details" title="Close (Esc)" class="shrink-0 p-2.5 text-vlr-muted hover:text-white bg-vlr-bg hover:bg-vlr-red border border-vlr-border hover:border-vlr-red transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Navigation Tabs (VLR Match Stats Tabs) -->
-      <div class="flex border-b border-vlr-border bg-vlr-bg font-mono text-xs">
-        <button id="tabTextAnalysis" class="px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition">
+      <!-- Publication overview strip -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-vlr-border border-b border-vlr-border">
+        <div class="bg-vlr-bg px-4 py-3 min-w-0"><p class="detail-kicker">SUBJECT</p><p id="modalSubject" class="detail-overview-value"></p></div>
+        <div class="bg-vlr-bg px-4 py-3 min-w-0"><p class="detail-kicker">PRIMARY AUDIENCE</p><p id="modalAudienceSummary" class="detail-overview-value"></p></div>
+        <div class="bg-vlr-bg px-4 py-3 min-w-0"><p class="detail-kicker">ENTRY NAVIGATION</p><div class="flex items-center justify-between gap-2"><span id="modalPosition" class="text-[10px] font-mono text-vlr-light tabular-nums">01 / 09</span><div class="flex items-center gap-1"><button id="modalPrevBtn" type="button" aria-label="Previous publication" title="Previous publication (←)" class="detail-nav-btn"><i data-lucide="chevron-left" class="w-4 h-4"></i></button><button id="modalNextBtn" type="button" aria-label="Next publication" title="Next publication (→)" class="detail-nav-btn"><i data-lucide="chevron-right" class="w-4 h-4"></i></button></div></div></div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div role="tablist" aria-label="Publication details" class="flex border-b border-vlr-border bg-vlr-bg font-mono text-[10px] sm:text-xs sticky top-[108px] z-10">
+        <button id="tabTextAnalysis" type="button" role="tab" aria-selected="true" aria-controls="contentTextAnalysis" class="px-4 sm:px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition">
           <i data-lucide="file-text" class="w-4 h-4 text-vlr-red"></i>
           TEXT ANALYSIS & SOURCE
         </button>
-        <button id="tabGenreChar" class="px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition">
+        <button id="tabGenreChar" type="button" role="tab" aria-selected="false" aria-controls="contentGenreChar" class="px-4 sm:px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition">
           <i data-lucide="sliders" class="w-4 h-4"></i>
           GENRE PROFILE
         </button>
@@ -221,8 +269,8 @@
       <div class="p-5 overflow-y-auto space-y-5 flex-1 bg-vlr-card">
         
         <!-- Tab 1 Content: Text Analysis -->
-        <div id="contentTextAnalysis" class="space-y-4">
-          
+        <div id="contentTextAnalysis" role="tabpanel" aria-labelledby="tabTextAnalysis" tabindex="0" class="space-y-5">
+          <div class="detail-section-heading"><span>01</span><div><p>PUBLICATION REVIEW</p><small>Source information and rhetorical analysis</small></div></div>
           <!-- Direct Link Banner -->
           <div class="p-4 bg-vlr-surface border border-vlr-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div class="space-y-1">
@@ -239,9 +287,10 @@
           </div>
 
           <!-- Citation Block -->
-          <div class="p-3 bg-vlr-bg border border-vlr-border space-y-1 font-mono text-xs">
-            <span class="text-vlr-muted block uppercase text-[10px] font-bold">APA CITATION FORMAT</span>
+          <div class="p-3 sm:p-4 bg-vlr-bg border border-vlr-border space-y-2 font-mono text-xs">
+            <div class="flex items-center justify-between gap-3"><span class="text-vlr-muted block uppercase text-[10px] font-bold tracking-wider">APA CITATION FORMAT</span><button type="button" id="copyCitationBtn" class="detail-copy-btn"><i data-lucide="copy" class="w-3.5 h-3.5"></i><span>COPY CITATION</span></button></div>
             <p id="modalCitation" class="text-vlr-light leading-relaxed"></p>
+            <p id="copyCitationStatus" class="text-[9px] font-mono text-vlr-cyan min-h-3" aria-live="polite"></p>
           </div>
 
           <!-- Detailed Key Highlights Grid -->
@@ -298,7 +347,8 @@
         </div>
 
         <!-- Tab 2 Content: Genre Profile -->
-        <div id="contentGenreChar" class="space-y-4 hidden">
+        <div id="contentGenreChar" role="tabpanel" aria-labelledby="tabGenreChar" tabindex="0" class="space-y-5 hidden">
+          <div class="detail-section-heading"><span>02</span><div><p>GENRE PROFILE</p><small>Conventions shared by this publication type</small></div></div>
           <div class="p-3 bg-vlr-surface border border-vlr-border text-xs font-mono text-vlr-muted">
             <span class="font-bold text-white">GENRE PROFILE:</span> Structural, editorial, and rhetorical conventions defining <span id="genreOverviewTitle" class="text-vlr-cyan uppercase font-bold">THIS GENRE</span>.
           </div>
@@ -373,7 +423,7 @@
 
   <!-- JavaScript Logic -->
   <script>
-    // Complete 8-Text Dataset
+    // Complete 9-Text Dataset
     const portfolioData = [
       {
         id: 1,
@@ -670,12 +720,50 @@
           visuals: "The article includes photographs and videos of robots performing manipulation tasks, as well as bar charts comparing model performance. These comparisons illustrate generalization, instruction-following ability, and adaptation to new tasks. The videos are particularly useful because they show the robots completing physical tasks rather than only describing the results in text.",
           significance: "This research is important because many advanced AI systems depend on powerful remote computing resources, which may introduce communication delays and connectivity problems. Running AI models directly on robots could make robotic systems more responsive and reliable. The ability to adapt the same model to different robotic platforms could also reduce the difficulty of developing intelligent robots. I think this article is useful because it shows how machine learning is moving beyond software applications into physical machines, making advanced robotic capabilities more practical for real-world use."
         }
+      },
+      {
+        id: 9,
+        textNum: "TEXT 09",
+        title: "The Python Tutorial",
+        authors: "Python Software Foundation",
+        year: "n.d.",
+        genre: "Tutorial / Instructions",
+        tags: ["PYTHON", "DOCUMENTATION", "PROGRAMMING"],
+        link: "https://docs.python.org/3/tutorial/",
+        citation: "Python Software Foundation. (n.d.). The Python Tutorial. Python Documentation. https://docs.python.org/3/tutorial/",
+        
+        genreData: {
+          whoWrites: "Technical writers, software developers, educators, engineers, and experts who explain how to use specific tools, technologies, or systems.",
+          audience: "Students, beginners, programmers, technical professionals, and people who want to learn new skills or complete specific tasks.",
+          publisher: "Technology companies, educational institutions, open-source organizations, and professional communities. They are usually published on official documentation websites, educational platforms, or in instructional books.",
+          formats: "HTML pages, PDF documents, printed books, videos, and interactive online tutorials.",
+          howFound: "Through search engines, official software documentation, educational websites, programming communities, and online learning platforms.",
+          purpose: "To teach readers how to use tools, understand concepts, solve problems, or complete tasks through explanations and practical examples.",
+          subjects: "Tutorials cover many subjects, including computer programming, software applications, engineering, mathematics, science, and practical skills. They usually focus on teaching specific knowledge or procedures.",
+          structure: "An introduction, learning objectives, explanations of basic concepts, step-by-step instructions, practical examples, and more advanced topics. Some tutorials also include exercises and troubleshooting sections.",
+          visuals: "Code examples, screenshots, diagrams, tables, numbered steps, and illustrations that demonstrate how to perform specific tasks.",
+          differences: "Unlike research articles, tutorials focus on teaching existing knowledge rather than presenting new discoveries. They also differ from technical specifications because tutorials explain how to use a technology, while specifications define its formal rules and requirements.",
+          interesting: "Tutorials are widely used in computer science because programming languages and software tools are constantly evolving. Online tutorials can be updated when new features are introduced. They often include practical examples that allow readers to learn by doing instead of only reading theoretical explanations."
+        },
+
+        textData: {
+          credentials: "The tutorial is part of the official Python documentation, maintained by the Python documentation contributors and development community. Python is an open-source programming language supported by an international community of experienced software developers. The Python Software Foundation supports the language and its ecosystem.",
+          howFound: "Found through a search of the official Python documentation website for programming tutorials.",
+          scope: "The tutorial introduces the main concepts and features of the Python programming language. It covers basic syntax, variables, data structures, control flow, functions, modules, file operations, exceptions, classes, and virtual environments. It also introduces parts of the Python standard library and explains how to organize programs using packages.",
+          subject: "The subject is learning how to write and understand Python programs. It explains the fundamental features of the language and demonstrates how they can be used to solve programming problems.",
+          primaryAudience: "The primary audience consists of programmers who already understand basic programming concepts but are new to Python. It is also useful for computer science students, software developers, and engineers who want to learn Python for their projects.",
+          message: "The tutorial aims to show that Python is a relatively simple but powerful programming language suitable for many applications. By learning its basic syntax, data structures, and programming features, readers can begin developing their own Python programs and continue learning more advanced libraries and tools.",
+          organization: "The tutorial begins by introducing Python and explaining how to use the interpreter. It then covers basic programming concepts, including numbers, strings, lists, control flow, and functions. Later chapters introduce data structures, modules, input and output, exception handling, and object-oriented programming. The final sections discuss the standard library, virtual environments, package management, and additional programming concepts.",
+          visuals: "The tutorial mainly uses code examples, sample outputs, formatted text, and organized headings. Many sections include short Python programs that demonstrate specific programming concepts. These examples help readers understand how the code works and allow them to practice using the language themselves.",
+          significance: "This tutorial is important because Python is widely used in software development, artificial intelligence, data analysis, and scientific computing. Official learning resources help programmers understand the language and develop good programming habits. The tutorial provides a structured introduction that allows readers to move from basic concepts to more advanced programming techniques. I think it is especially useful because the examples are practical and can be tested directly, making it easier to connect theoretical knowledge with actual programming experience."
+        }
       }
     ];
 
     let selectedGenreFilter = "All";
     let searchQuery = "";
     let activeItem = null;
+    let lastFocusedElement = null;
 
     const portfolioGrid = document.getElementById("portfolioGrid");
     const genreFiltersContainer = document.getElementById("genreFilters");
@@ -704,6 +792,13 @@
     const modalSignificance = document.getElementById("modalSignificance");
     const modalTextOrganization = document.getElementById("modalTextOrganization");
     const modalTextVisuals = document.getElementById("modalTextVisuals");
+    const modalSubject = document.getElementById("modalSubject");
+    const modalAudienceSummary = document.getElementById("modalAudienceSummary");
+    const modalPosition = document.getElementById("modalPosition");
+    const modalPrevBtn = document.getElementById("modalPrevBtn");
+    const modalNextBtn = document.getElementById("modalNextBtn");
+    const copyCitationBtn = document.getElementById("copyCitationBtn");
+    const copyCitationStatus = document.getElementById("copyCitationStatus");
 
     const genreOverviewTitle = document.getElementById("genreOverviewTitle");
     const genreWhoWrites = document.getElementById("genreWhoWrites");
@@ -764,6 +859,8 @@
       const filtered = getFilteredData();
       const resultCount = document.getElementById("resultCount");
       if (resultCount) resultCount.textContent = filtered.length;
+      const feedCount = document.getElementById("feedResultCount");
+      if (feedCount) feedCount.textContent = filtered.length;
 
       if (filtered.length === 0) {
         portfolioGrid.innerHTML = `
@@ -771,27 +868,55 @@
             <i data-lucide="search-x" class="w-8 h-8 text-vlr-muted mx-auto mb-3"></i>
             <p class="font-mono text-xs text-vlr-light uppercase">No publications found</p>
             <p class="text-xs text-vlr-muted mt-1">Try another title, author, topic or genre.</p>
+            <button type="button" id="clearFiltersBtn" class="mt-4 px-3 py-2 border border-vlr-border text-[10px] font-mono font-bold text-vlr-light hover:border-vlr-red hover:text-white transition">CLEAR SEARCH & FILTERS</button>
           </div>`;
+        document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+          selectedGenreFilter = 'All';
+          searchQuery = '';
+          searchInput.value = '';
+          renderGenreFilters();
+          renderGrid();
+        });
         lucide.createIcons();
         return;
       }
 
-      portfolioGrid.innerHTML = filtered.map(item => `
-        <article class="publication-card bg-vlr-card border border-vlr-border p-4 sm:p-5">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-vlr-border pb-3 mb-3">
-            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-vlr-red">${item.genre}</span>
-            <span class="text-[10px] font-mono text-vlr-muted">${item.textNum} <span class="text-vlr-border mx-1">/</span> ${item.year}</span>
-          </div>
-          <h3 class="font-display text-[21px] sm:text-[23px] leading-tight font-bold text-white uppercase tracking-wide">${item.title}</h3>
-          <p class="text-[11px] text-vlr-muted mt-2 leading-relaxed">${item.authors}</p>
-          <div class="flex flex-wrap gap-1.5 mt-3">${item.tags.map(t => `<span class="px-2 py-1 bg-vlr-bg border border-vlr-border text-[9px] font-mono text-vlr-muted tracking-wide">${t}</span>`).join('')}</div>
-          <div class="mt-4 pt-3 border-t border-vlr-border flex items-center justify-between gap-3">
-            <span class="text-[10px] text-vlr-muted font-mono truncate">${item.year} <span class="mx-1 text-vlr-border">/</span> ${item.genre}</span>
-            <div class="flex items-center gap-2 shrink-0">
-              <button onclick="openModal(${item.id})" class="px-3 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-[10px] font-bold tracking-wider uppercase transition flex items-center gap-2">
-                VIEW ANALYSIS <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </button>
-              <a href="${item.link}" target="_blank" rel="noopener noreferrer" aria-label="Open original publication" title="Open original publication" class="p-2 border border-vlr-border text-vlr-muted hover:text-white hover:border-vlr-red transition"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+      portfolioGrid.innerHTML = filtered.map((item, index) => `
+        <article class="publication-card group bg-vlr-card border border-vlr-border overflow-hidden">
+          <div class="grid grid-cols-[54px_minmax(0,1fr)] sm:grid-cols-[66px_minmax(0,1fr)]">
+            <div class="text-index border-r border-vlr-border bg-vlr-bg/70 flex flex-col items-center justify-center gap-1 py-5">
+              <span class="font-display text-2xl sm:text-3xl font-bold leading-none">${String(item.id).padStart(2, '0')}</span>
+              <span class="text-[8px] font-mono tracking-wider">TEXT</span>
+            </div>
+            <div class="min-w-0 p-3.5 sm:p-4">
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-2">
+                <span class="text-[9px] font-mono font-bold tracking-[.12em] uppercase text-vlr-red">${item.genre}</span>
+                <span class="text-[9px] font-mono text-vlr-muted">${item.year} <span class="mx-1 text-vlr-border">/</span> ${item.textNum}</span>
+              </div>
+              <h3 class="font-display text-[20px] sm:text-[23px] leading-[1.12] font-bold text-white uppercase tracking-wide">${item.title}</h3>
+              <p class="text-[10px] sm:text-[11px] text-vlr-muted mt-1.5 leading-relaxed">${item.authors}</p>
+              <div class="flex flex-wrap gap-1.5 mt-3">${item.tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 pt-3 border-t border-vlr-border">
+                <div class="min-w-0">
+                  <p class="meta-label mb-1">Subject</p>
+                  <p class="meta-value line-clamp-2">${item.textData.subject}</p>
+                </div>
+                <div class="min-w-0">
+                  <p class="meta-label mb-1">Primary audience</p>
+                  <p class="meta-value line-clamp-2">${item.textData.primaryAudience}</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mt-4">
+                <span class="text-[9px] font-mono text-vlr-muted uppercase tracking-wider">Portfolio entry ${String(index + 1).padStart(2, '0')} / ${filtered.length}</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="openModal(${item.id})" class="card-action px-3 py-2 bg-vlr-red hover:bg-vlr-redHover text-white font-mono text-[9px] font-bold tracking-wider uppercase transition flex items-center gap-2">
+                    VIEW ANALYSIS <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </button>
+                  <a href="${item.link}" target="_blank" rel="noopener noreferrer" aria-label="Open original publication: ${item.title}" title="Open original publication" class="card-action p-2 border border-vlr-border text-vlr-muted hover:text-white hover:border-vlr-red transition flex items-center justify-center">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -827,6 +952,7 @@
     window.openModal = function(id) {
       activeItem = portfolioData.find(d => d.id === id);
       if (!activeItem) return;
+      if (detailModal.classList.contains("hidden")) lastFocusedElement = document.activeElement;
 
       modalGenreBadge.innerText = activeItem.genre;
       modalYear.innerText = activeItem.year;
@@ -834,6 +960,10 @@
       modalTitle.innerText = activeItem.title;
       modalAuthors.innerText = activeItem.authors;
       modalDirectLink.href = activeItem.link;
+      modalSubject.innerText = activeItem.textData.subject;
+      modalAudienceSummary.innerText = activeItem.textData.primaryAudience;
+      updateModalNavigation();
+      copyCitationStatus.innerText = "";
 
       modalCitation.innerText = activeItem.citation;
       modalCredentials.innerText = activeItem.textData.credentials;
@@ -861,26 +991,58 @@
       switchTab("textAnalysis");
 
       detailModal.classList.remove("hidden");
+      detailModal.setAttribute("aria-hidden", "false");
       setTimeout(() => {
         detailModal.classList.remove("opacity-0");
         modalContainer.classList.remove("scale-95");
         modalContainer.classList.add("scale-100");
+        closeModalBtn.focus();
       }, 10);
 
       document.body.style.overflow = "hidden";
+      if (window.lucide) lucide.createIcons();
     };
+
+    function updateModalNavigation() {
+      const index = portfolioData.findIndex(item => item.id === activeItem?.id);
+      modalPosition.textContent = `${String(index + 1).padStart(2, "0")} / ${String(portfolioData.length).padStart(2, "0")}`;
+      modalPrevBtn.disabled = index <= 0;
+      modalNextBtn.disabled = index >= portfolioData.length - 1;
+    }
+
+    function moveModalItem(direction) {
+      if (!activeItem) return;
+      const index = portfolioData.findIndex(item => item.id === activeItem.id);
+      const next = portfolioData[index + direction];
+      if (next) window.openModal(next.id);
+    }
+
+    async function copyActiveCitation() {
+      if (!activeItem?.citation) return;
+      try {
+        await navigator.clipboard.writeText(activeItem.citation);
+        copyCitationStatus.textContent = "CITATION COPIED";
+      } catch (error) {
+        copyCitationStatus.textContent = "COPY UNAVAILABLE. SELECT THE CITATION TEXT TO COPY.";
+      }
+    }
 
     function closeModal() {
       detailModal.classList.add("opacity-0");
+      detailModal.setAttribute("aria-hidden", "true");
       modalContainer.classList.remove("scale-100");
       modalContainer.classList.add("scale-95");
       setTimeout(() => {
         detailModal.classList.add("hidden");
         document.body.style.overflow = "";
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") lastFocusedElement.focus();
       }, 150);
     }
 
     function switchTab(tab) {
+      const showText = tab === "textAnalysis";
+      tabTextAnalysis.setAttribute("aria-selected", String(showText));
+      tabGenreChar.setAttribute("aria-selected", String(!showText));
       if (tab === "textAnalysis") {
         tabTextAnalysis.className = "px-6 py-3 font-bold border-b-2 border-vlr-red text-white uppercase flex items-center gap-2 transition";
         tabGenreChar.className = "px-6 py-3 font-bold border-b-2 border-transparent text-vlr-muted hover:text-white uppercase flex items-center gap-2 transition";
@@ -912,14 +1074,37 @@
       tabGenreChar.addEventListener("click", () => switchTab("genreChar"));
 
       closeModalBtn.addEventListener("click", closeModal);
+      modalPrevBtn.addEventListener("click", () => moveModalItem(-1));
+      modalNextBtn.addEventListener("click", () => moveModalItem(1));
+      copyCitationBtn.addEventListener("click", copyActiveCitation);
       detailModal.addEventListener("click", (e) => {
         if (e.target === detailModal) closeModal();
       });
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !detailModal.classList.contains("hidden")) {
+        if (detailModal.classList.contains("hidden")) return;
+        if (e.key === "Escape") {
+          e.preventDefault();
           closeModal();
+          return;
         }
+        if (e.key === "Tab") {
+          const focusable = [...modalContainer.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+            .filter(el => el.offsetParent !== null);
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+          return;
+        }
+        const target = e.target;
+        const isTyping = target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
+        if (!isTyping && e.key === "ArrowLeft") moveModalItem(-1);
+        if (!isTyping && e.key === "ArrowRight") moveModalItem(1);
       });
     }
 
